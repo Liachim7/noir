@@ -1,0 +1,56 @@
+.site-footer {
+    background: #050505;
+    color: #fff;
+    padding-block: 30px;
+    border-top: 1px solid #222
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    gap: 25px
+}
+
+.logo {
+    font: 800 27px/1 'Manrope', sans-serif;
+    letter-spacing: -1.5px
+}
+
+.logo span {
+    color: #999
+}
+
+.logo-light {
+    color: #fff
+}
+
+.footer-inner p {
+    color: #aaa;
+    font-size: 13px;
+    margin: 0
+}
+
+.footer-inner small {
+    margin-left: auto;
+    color: #777;
+    font-size: 11px
+}
+
+@media(max-width:620px) {
+    .footer-inner {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 12px
+    }
+
+    .footer-inner p {
+        order: 3;
+        width: 100%
+    }
+
+    .footer-inner small {
+        width: 100%;
+        margin-left: 0;
+        text-align: left
+    }
+}

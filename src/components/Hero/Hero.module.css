@@ -1,0 +1,197 @@
+.hero {
+    min-height: 510px;
+    overflow: hidden;
+    background: #111;
+    border-bottom: 1px solid #292929;
+    position: relative;
+    display: flex;
+    align-items: center
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding-block: 78px
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 1.7px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #999;
+    margin: 0 0 15px
+}
+
+.hero h1 {
+    font-size: clamp(42px, 5.2vw, 68px);
+    max-width: 610px;
+    margin-bottom: 20px
+}
+
+.hero-text {
+    max-width: 400px;
+    color: #aaa;
+    margin-bottom: 29px
+}
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    min-height: 50px;
+    padding: 0 23px;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform .2s, background .2s
+}
+
+.btn:hover {
+    transform: translateY(-2px)
+}
+
+.btn-primary {
+    background: #eee;
+    color: #111
+}
+
+.btn-primary:hover {
+    background: #ccc
+}
+
+.hero-art {
+    position: absolute;
+    inset: 0 0 0 48%;
+    overflow: hidden
+}
+
+.art-circle {
+    position: absolute;
+    width: 440px;
+    height: 440px;
+    right: 8%;
+    top: 60px;
+    border-radius: 50%;
+    background: #151515;
+    border: 1px solid #303030
+}
+
+.art-card {
+    position: absolute;
+    border-radius: 20px;
+    box-shadow: none;
+    border: 1px solid #252525
+}
+
+.art-card-one {
+    width: 210px;
+    height: 275px;
+    background: #030303;
+    right: 25%;
+    top: 110px;
+    transform: rotate(-9deg);
+    display: grid;
+    place-items: center;
+    color: #777;
+    font: 700 20px/1.2 'Manrope';
+    text-align: center;
+    letter-spacing: 2px
+}
+
+.art-card-two {
+    width: 175px;
+    height: 225px;
+    right: 10%;
+    top: 205px;
+    background: #030303;
+    transform: rotate(10deg)
+}
+
+@media(max-width:900px) {
+    .hero-art {
+        left: 44%;
+        opacity: .72
+    }
+
+    .art-circle {
+        width: 350px;
+        height: 350px;
+        right: -2%;
+        top: 90px
+    }
+
+    .art-card-one {
+        right: 23%;
+        width: 170px;
+        height: 230px
+    }
+
+    .art-card-two {
+        right: 0;
+        width: 140px;
+        height: 190px
+    }
+}
+
+@media(max-width:760px) {
+    .hero {
+        min-height: 550px
+    }
+
+    .hero-art {
+        left: 32%;
+        opacity: .35
+    }
+}
+
+@media(max-width:620px) {
+    .hero {
+        min-height: 535px;
+        align-items: flex-start
+    }
+
+    .hero-content {
+        padding-top: 44px
+    }
+
+    .hero h1 {
+        font-size: clamp(35px, 10vw, 43px);
+        max-width: 370px
+    }
+
+    .hero-text {
+        font-size: 14px;
+        max-width: 280px
+    }
+
+    .hero-art {
+        left: 0;
+        top: 270px
+    }
+
+    .art-circle {
+        width: 300px;
+        height: 300px;
+        right: 2%;
+        top: 45px
+    }
+
+    .art-card-one {
+        top: 75px;
+        right: 30%;
+        width: 145px;
+        height: 190px;
+        font-size: 15px
+    }
+
+    .art-card-two {
+        top: 140px;
+        right: 7%;
+        width: 120px;
+        height: 160px
+    }
+}
