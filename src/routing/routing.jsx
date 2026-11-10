@@ -18,7 +18,7 @@ export function Routing() {
     <Routes>
       <Route path={PATH.Home} element={<HomePage />} />
       <Route path={PATH.Catalog} element={<CatalogPage />} />
-      <Route path={PATH.Product} element={<ProductPage />} />
+      <Route path={`${PATH.Product}/:id`} element={<ProductPage />} />
       <Route path={PATH.Cart} element={<CartPage />} />
       <Route path={PATH.NotFound} element={<PageNotFound />} />
     </Routes>

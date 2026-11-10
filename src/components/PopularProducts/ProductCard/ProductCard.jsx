@@ -1,20 +1,25 @@
 import { Link } from "react-router";
 import { PATH } from "../../../routing/routing.jsx";
+import styles from "./ProductCard.module.css";
 
-export default function ProductCard({ name, category, price, art, tag }) {
+const formatPrice = (price) => `${new Intl.NumberFormat("ru-RU").format(price)} ₽`;
+
+export function ProductCard({ product, category }) {
   return (
-    <article className="product-card">
-      <Link to={PATH.Product} aria-label={`Подробнее: ${name}`}>
-        <div className={`product-image ${art}`} aria-hidden="true">
-          {tag && <span className="product-tag">{tag}</span>}
-          <div className="product-shape" />
+    <article className={styles["product-card"]}>
+      <Link
+        to={`${PATH.Product}/${product.id}`}
+        aria-label={`Подробнее: ${product.title}`}
+      >
+        <div className="product-image">
+          <img src={product.image} alt={product.title} />
         </div>
-        <div className="product-meta">
+        <div className={styles["product-meta"]}>
           <div>
-            <p className="product-name">{name}</p>
-            <p className="product-category">{category}</p>
+            <p className={styles["product-name"]}>{product.title}</p>
+            <p className={styles["product-category"]}>{category}</p>
           </div>
-          <span className="product-price">{price}</span>
+          <span className={styles["product-price"]}>{formatPrice(product.price)}</span>
         </div>
       </Link>
     </article>

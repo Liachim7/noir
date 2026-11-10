@@ -1,0 +1,230 @@
+.hero {
+min-height: 510px;
+  overflow: hidden;
+  background: #eef0e7;
+  position: relative;
+  display: flex;
+  align-items: center
+}
+
+.hero-content {
+position: relative;
+  z-index: 2;
+  padding-block: 78px
+}
+
+.hero h1 {
+font-size: clamp(42px, 5.2vw, 68px);
+  max-width: 610px;
+  margin-bottom: 20px
+}
+
+.hero-text {
+max-width: 400px;
+  color: #696d62;
+  margin-bottom: 29px
+}
+
+.hero-art {
+position: absolute;
+  inset: 0 0 0 48%;
+  overflow: hidden
+}
+
+.art-circle {
+position: absolute;
+  width: 440px;
+  height: 440px;
+  right: 8%;
+  top: 60px;
+  border-radius: 50%;
+  background: #d5e5bd
+}
+
+.art-card {
+position: absolute;
+  border-radius: 20px;
+  box-shadow: 0 25px 55px #3c4a2820
+}
+
+.art-card-one {
+width: 210px;
+  height: 275px;
+  background: #a5b38d;
+  right: 25%;
+  top: 110px;
+  transform: rotate(-9deg);
+  display: grid;
+  place-items: center;
+  color: #f7f6ee;
+  font: 700 20px/1.2 'Manrope';
+  text-align: center;
+  letter-spacing: 2px
+}
+
+.art-card-two {
+width: 175px;
+  height: 225px;
+  right: 10%;
+  top: 205px;
+  background: linear-gradient(145deg, #e7cdb0, #bd8e69);
+  transform: rotate(10deg)
+}
+
+@media(max-width:900px) {
+.hero-art {
+left: 44%;
+    opacity: .72
+}
+}
+
+@media(max-width:900px) {
+.art-circle {
+width: 350px;
+    height: 350px;
+    right: -2%;
+    top: 90px
+}
+}
+
+@media(max-width:900px) {
+.art-card-one {
+right: 23%;
+    width: 170px;
+    height: 230px
+}
+}
+
+@media(max-width:900px) {
+.art-card-two {
+right: 0;
+    width: 140px;
+    height: 190px
+}
+}
+
+@media(max-width:620px) {
+.hero {
+min-height: 610px;
+    align-items: flex-start
+}
+}
+
+@media(max-width:620px) {
+.hero-content {
+padding-top: 55px
+}
+}
+
+@media(max-width:620px) {
+.hero h1 {
+font-size: 43px;
+    max-width: 370px
+}
+}
+
+@media(max-width:620px) {
+.hero-text {
+max-width: 310px
+}
+}
+
+@media(max-width:620px) {
+.hero-art {
+left: 0;
+    top: 280px;
+    opacity: .5
+}
+}
+
+@media(max-width:620px) {
+.art-circle {
+width: 300px;
+    height: 300px;
+    right: 2%;
+    top: 45px
+}
+}
+
+@media(max-width:620px) {
+.art-card-one {
+top: 75px;
+    right: 30%;
+    width: 145px;
+    height: 190px;
+    font-size: 15px
+}
+}
+
+@media(max-width:620px) {
+.art-card-two {
+top: 140px;
+    right: 7%;
+    width: 120px;
+    height: 160px
+}
+}
+
+.hero {
+background: #111;
+  border-bottom: 1px solid #292929
+}
+
+.art-circle {
+background: #151515;
+  border: 1px solid #303030
+}
+
+.art-card,
+.art-card-one,
+.art-card-two {
+background: #030303;
+  border: 1px solid #252525;
+  color: #777;
+  box-shadow: none
+}
+
+@media (max-width: 760px) {
+.hero {
+min-height: 550px;
+}
+}
+
+@media (max-width: 760px) {
+.hero-art {
+left: 32%;
+    opacity: .35;
+}
+}
+
+@media (max-width: 480px) {
+.hero {
+min-height: 535px;
+}
+}
+
+@media (max-width: 480px) {
+.hero-content {
+padding-top: 44px;
+}
+}
+
+@media (max-width: 480px) {
+.hero h1 {
+font-size: clamp(35px, 10vw, 43px);
+}
+}
+
+@media (max-width: 480px) {
+.hero-text {
+font-size: 14px;
+    max-width: 280px;
+}
+}
+
+@media (max-width: 480px) {
+.hero-art {
+top: 270px;
+    left: 0;
+}
+}

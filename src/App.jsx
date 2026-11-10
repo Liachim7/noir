@@ -2,7 +2,7 @@ import { Footer } from "./components/Footer/Footer.jsx";
 import { Header } from "./components/Header/Header.jsx";
 import { Routing } from "./routing/routing.jsx";
 
-export default function App() {
+export function App() {
   return (
     <div className="layout">
       <Header />

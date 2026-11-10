@@ -1,6 +1,37 @@
-import ProductCard from "../../components/PopularProducts/ProductCard/ProductCard.jsx";
+import { useEffect, useState } from "react";
+import { ProductCard } from "../../components/PopularProducts/ProductCard/ProductCard.jsx";
+import styles from "./CatalogPage.module.css";
 
 export function CatalogPage() {
+  const [products, setProducts] = useState([]);
+  const [productsError, setProductsError] = useState(null);
+  const [categories, setCategories] = useState([]);
+  const [categoriesError, setCategoriesError] = useState(null);
+
+  useEffect(() => {
+    fetch("/products")
+      .then((response) => {
+        if (!response.ok) throw new Error("Не удалось загрузить товары");
+        return response.json();
+      })
+      .then(setProducts)
+      .catch(setProductsError);
+  }, []);
+
+  useEffect(() => {
+    fetch("/categories")
+      .then((response) => {
+        if (!response.ok) throw new Error("Не удалось загрузить категории");
+        return response.json();
+      })
+      .then(setCategories)
+      .catch(setCategoriesError);
+  }, []);
+
+  const categoriesById = Object.fromEntries(
+    categories.map((category) => [category.id, category.title]),
+  );
+
   return (
     <main className="container page-main">
       <div className="page-heading">
@@ -8,34 +39,50 @@ export function CatalogPage() {
         <h1>Каталог</h1>
         <p>Продуманные вещи для повседневных ритуалов.</p>
       </div>
-      <section className="catalog-tools" aria-label="Поиск и фильтры">
-        <label className="search-box">
+      <section className={styles["catalog-tools"]} aria-label="Поиск и фильтры">
+        <label className={styles["search-box"]}>
           <span className="sr-only">Поиск товаров</span>
           <span aria-hidden="true">⌕</span>
           <input type="search" placeholder="Найти товар..." disabled />
         </label>
-        <div className="filter-group" aria-label="Категории">
-          <span className="filter-chip active">Все товары</span>
-          <span className="filter-chip">Аксессуары</span>
-          <span className="filter-chip">Для дома</span>
-          <span className="filter-chip">Одежда</span>
+        <div className={styles["filter-group"]} aria-label="Категории">
+          <span className={`${styles["filter-chip"]} ${styles.active}`}>Все товары</span>
+          {categoriesError ? (
+            <span role="alert">{categoriesError.message}</span>
+          ) : (
+            categories.map((category) => (
+              <span className={styles["filter-chip"]} key={category.id}>
+                {category.title}
+              </span>
+            ))
+          )}
         </div>
-        <label className="sort-control">
+        <label className={styles["sort-control"]}>
           Сортировка
           <select disabled defaultValue="default">
             <option value="default">По умолчанию</option>
           </select>
         </label>
       </section>
-      <p className="results-count">Найдено товаров: 6</p>
-      <div className="product-grid catalog-grid">
-        <ProductCard name="Термокружка Daily" category="Аксессуары" price="1 490 ₽" art="art-mug" tag="Хит" />
-        <ProductCard name="Сумка Everyday" category="Аксессуары" price="2 290 ₽" art="art-bag" tag="Новинка" />
-        <ProductCard name="Настольная лампа Soft" category="Дом" price="3 490 ₽" art="art-lamp" />
-        <ProductCard name="Футболка Basic" category="Одежда" price="1 790 ₽" art="art-shirt" />
-        <ProductCard name="Наушники Flow" category="Аксессуары" price="4 990 ₽" art="art-headphones" />
-        <ProductCard name="Блокнот Notes" category="Дом" price="690 ₽" art="art-notebook" />
-      </div>
+
+      {productsError ? (
+        <p className="empty-state" role="alert">Ошибка: {productsError.message}</p>
+      ) : products.length === 0 ? (
+        <p className="empty-state">Товары не найдены</p>
+      ) : (
+        <>
+          <p className={styles["results-count"]}>Найдено товаров: {products.length}</p>
+          <div className={`product-grid ${styles["catalog-grid"]}`}>
+            {products.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                category={categoriesById[product.categoryId] || ""}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </main>
   );
 }

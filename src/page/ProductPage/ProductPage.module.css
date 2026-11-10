@@ -1,0 +1,3 @@
+.product-page-state > p:first-child {
+color: var(--muted);
+}

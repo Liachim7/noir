@@ -1,4 +1,6 @@
-export default function Newsletter() {
+import styles from "./Newsletter.module.css";
+
+export function Newsletter() {
   function handleSubmit(event) {
     event.preventDefault();
     event.currentTarget.querySelector('p[aria-live="polite"]').textContent =
@@ -7,8 +9,8 @@ export default function Newsletter() {
   }
 
   return (
-    <section className="newsletter">
-      <div className="container newsletter-inner">
+    <section className={styles.newsletter}>
+      <div className={`container ${styles["newsletter-inner"]}`}>
         <div>
           <p className="eyebrow">Будьте в курсе</p>
           <h2>
@@ -18,9 +20,9 @@ export default function Newsletter() {
           </h2>
           <p>Новинки, идеи и специальные предложения. Никакого спама.</p>
         </div>
-        <form className="newsletter-form" onSubmit={handleSubmit}>
+        <form className={styles["newsletter-form"]} onSubmit={handleSubmit}>
           <label htmlFor="email">Ваш email</label>
-          <div className="input-row">
+          <div className={styles["input-row"]}>
             <input
               id="email"
               name="email"
@@ -30,7 +32,7 @@ export default function Newsletter() {
             />
             <button className="btn btn-dark" type="submit">Подписаться</button>
           </div>
-          <p className="form-message" aria-live="polite" />
+          <p className={styles["form-message"]} aria-live="polite" />
         </form>
       </div>
     </section>

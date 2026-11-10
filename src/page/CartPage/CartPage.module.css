@@ -1,0 +1,199 @@
+.cart-content {
+max-width: 780px
+}
+
+.cart-row {
+display: grid;
+  grid-template-columns: 90px minmax(0, 1fr) auto auto auto;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line)
+}
+
+.cart-thumb {
+height: 90px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center
+}
+
+.cart-row h3 {
+font-size: 16px;
+  letter-spacing: -.3px;
+  margin: 0 0 4px
+}
+
+.cart-row p {
+font-size: 13px;
+  color: var(--muted);
+  margin: 0
+}
+
+.quantity-control {
+display: flex;
+  align-items: center;
+  gap: 10px
+}
+
+.quantity-control button,
+.remove-item {
+border: 1px solid var(--line);
+  background: white;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 9px
+}
+
+.remove-item {
+color: #777
+}
+
+.cart-summary {
+display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+  font-weight: 700
+}
+
+.cart-empty {
+text-align: center;
+  padding: 45px 20px;
+  background: #f0efe9;
+  border-radius: 12px
+}
+
+.cart-empty p {
+color: var(--muted)
+}
+
+@media(max-width:620px) {
+.cart-row {
+grid-template-columns: 65px 1fr auto;
+    gap: 12px
+}
+}
+
+@media(max-width:620px) {
+.cart-thumb {
+height: 65px
+}
+}
+
+@media(max-width:620px) {
+.cart-row .quantity-control {
+grid-column: 2;
+    grid-row: 2;
+    justify-self: start
+}
+}
+
+@media(max-width:620px) {
+.cart-row .remove-item {
+grid-column: 3;
+    grid-row: 1
+}
+}
+
+@media(max-width:620px) {
+.cart-row .cart-line-price {
+grid-column: 3;
+    grid-row: 2;
+    font-size: 13px
+}
+}
+
+@media(max-width:620px) {
+.cart-summary {
+gap: 15px
+}
+}
+
+@media(max-width:620px) {
+.cart-summary :global(.btn) {
+padding-inline: 14px
+}
+}
+
+.cart-empty {
+background: #111;
+  border: 1px solid #292929
+}
+
+.cart-row {
+border-color: #292929
+}
+
+.quantity-control button,
+.remove-item {
+background: #111;
+  color: #eee;
+  border-color: #383838
+}
+
+@media (max-width: 760px) {
+.cart-row {
+grid-template-columns: 66px minmax(0, 1fr) auto;
+    grid-template-areas: "thumb info remove" "thumb qty price";
+    align-items: center;
+    gap: 8px 12px;
+    padding: 16px 0;
+}
+}
+
+@media (max-width: 760px) {
+.cart-thumb {
+grid-area: thumb;
+    height: 66px;
+}
+}
+
+@media (max-width: 760px) {
+.cart-row>div:nth-child(2) {
+grid-area: info;
+    min-width: 0;
+}
+}
+
+@media (max-width: 760px) {
+.cart-row .quantity-control {
+grid-area: qty;
+    justify-self: start;
+}
+}
+
+@media (max-width: 760px) {
+.cart-row .cart-line-price {
+grid-area: price;
+    justify-self: end;
+    white-space: nowrap;
+}
+}
+
+@media (max-width: 760px) {
+.cart-row .remove-item {
+grid-area: remove;
+    justify-self: end;
+}
+}
+
+@media (max-width: 760px) {
+.cart-summary {
+align-items: stretch;
+    flex-direction: column;
+}
+}
+
+@media (max-width: 760px) {
+.cart-summary :global(.btn) {
+width: 100%;
+}
+}
+
+@media (max-width: 350px) {
+.cart-row {
+grid-template-columns: 56px minmax(0, 1fr) auto;
+    gap: 8px;
+}
+}
